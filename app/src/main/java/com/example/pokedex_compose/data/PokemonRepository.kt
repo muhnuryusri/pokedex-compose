@@ -3,7 +3,6 @@ package com.example.pokedex_compose.data
 import com.example.pokedex_compose.model.Pokemon
 import com.example.pokedex_compose.model.PokemonData
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flowOf
 
 class PokemonRepository {
@@ -25,12 +24,6 @@ class PokemonRepository {
         return pokemonList.first {
             it.id == pokemonId
         }
-    }
-
-    fun searchPokemon(query: String): Flow<List<Pokemon>>{
-        return flowOf(pokemonList.filter {
-            it.name.contains(query, ignoreCase = true)
-        })
     }
 
     companion object {
